@@ -1,0 +1,46 @@
+// resolucion incompleta 
+
+public class Prenda {
+    public int idPrenda;
+    public TipoPrenda tipoPrenda;
+    public Categoria categoria;
+    public String material;
+    public String colorPrimario;
+    public List<String> coloresSecundarios;
+
+    public Prenda(TipoPrenda tipoPrenda, Categoria categoria, String material, String colorPrimario, List<String> coloresSecundarios) throws Exception {
+        this.tipoPrenda = tipoPrenda;
+        this.material = material;
+        this.colorPrimario = colorPrimario;
+        if (tipoPrenda == null) {
+            throw new Exception("no es posible crear una prenda sin especificar el tipo");
+        }
+        if (categoria == null) {
+            throw new Exception("no es posible crear una prenda sin especificar la categoria");
+        }
+        if (material == null){
+            throw new Exception("no es posible crear una prenda sin especificar el material");
+        }
+        if (colorPrimario == null){
+            throw new Exception("no es posible crear una prenda sin especificar el color");
+        }
+        if (!(this.categoria.tipoValidoAsociado(this.tipoPrenda))){
+            throw new Exception("el tipo indicado no corresponde a la categoria indicada");
+        }
+    }
+}
+
+public class TipoPrenda {
+    public String nombreTipo;
+}
+
+public class Categoria {
+    public List<String> tipos;
+    public Boolean tipoValidoAsociado(TipoPrenda tipo){
+        if (tipos.contains(tipo.nombreTipo())){
+            return true;            
+        }else{
+            return false;   
+        }
+    }
+}
