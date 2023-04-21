@@ -44,3 +44,18 @@ public class Categoria {
         }
     }
 }
+
+public class Atuendo {
+    public Prenda parteDeAbajo;
+    public Prenda parteDeArriba;
+    public Prenda calzado;
+    public List<Prenda> accesorios;
+
+    public Atuendo(Prenda parteDeAbajo, Prenda parteDeArriba, Prenda calzado, List<Prenda> accesorios) {
+        this.parteDeAbajo = parteDeAbajo;
+        this.parteDeArriba = parteDeArriba;
+        this.calzado = calzado;
+        this.accesorios = accesorios;
+    }
+}
+
